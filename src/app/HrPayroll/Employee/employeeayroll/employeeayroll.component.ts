@@ -24,7 +24,9 @@ export class EmployeeayrollComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData) {
+            console.log(resultData);
             this.employeePayrollList = resultData;
+            console.log(this.employeePayrollList);
           }
         }
       },
@@ -41,7 +43,7 @@ export class EmployeeayrollComponent implements OnInit {
   }
 
   AddEmployeePayroll() {
-    this.router.navigate(['AddEmployeePayroll']);
+    this.router.navigate(['dashboard/AddEmployeePayroll']);
   }
 
   deleteEmployee(employee: any) {

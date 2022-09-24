@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpProviderService } from './http-provider.service';
 
-var apiUrl = "http://localhost:8100/";
+var apiUrl = "https://localhost:44330";
 
 var httpLink = {
-  getAllEmployeePayroll: apiUrl + "/api/employee/getAllEmployeePayroll",
+  getAllEmployeePayroll: apiUrl + "/api/Employee/ViewAllEmployeePayroll",
   deleteEmployeePayrollById: apiUrl + "/api/employee/deleteEmployeePayrollById",
   getEmployeePayrollDetailById: apiUrl + "/api/employee/getEmployeePayrollDetailById",
-  saveEmployeePayroll: apiUrl + "/api/employee/saveEmployeePayroll"
+  saveEmployeePayroll: apiUrl + "/api/Employee/AddEmployeePayroll"
 }
 
 @Injectable({

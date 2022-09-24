@@ -25,6 +25,7 @@ export class EmployeepayrollUpdateComponent implements OnInit {
   AddEmployeePayroll(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
+      //this.addEmployeeForm.Id  = this.addEmployeeForm.EmployeeId ;      
       this.employeepayrollService.saveEmployeePayroll(this.addEmployeeForm).subscribe({
         next: async data => {
           if (data != null && data.body != null) {
@@ -33,7 +34,7 @@ export class EmployeepayrollUpdateComponent implements OnInit {
               if (resultData != null && resultData.isSuccess) {
                 //this.toastr.success(resultData.message);
                 setTimeout(() => {
-                  this.router.navigate(['/Home']);
+                  this.router.navigate(['/dashboard/EmployeePayrollList/']);
                 }, 500);
               }
             }
@@ -42,7 +43,7 @@ export class EmployeepayrollUpdateComponent implements OnInit {
         error: async error => {
           //this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/dashboard/EmployeePayrollList/']);
           }, 500);
         }
       });
@@ -55,12 +56,14 @@ export class EmployeepayrollUpdateComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData) {
-            this.addEmployeeForm.PayrollId = resultData.id;
-            this.addEmployeeForm.FirstName = resultData.firstName;
-            this.addEmployeeForm.LastName = resultData.lastName;
-            this.addEmployeeForm.Email = resultData.email;
-            this.addEmployeeForm.Address = resultData.address;
-            this.addEmployeeForm.Phone = resultData.phone;
+            this.addEmployeeForm.Id = resultData.Id;
+            this.addEmployeeForm.EmployeeName = resultData.EmployeeName;
+            this.addEmployeeForm.EmployeeId = resultData.EmployeeId;
+            this.addEmployeeForm.Basicpay = resultData.Basicpay;
+            this.addEmployeeForm.HRA = resultData.HRA;
+            this.addEmployeeForm.ConveyanceAllowance = resultData.ConveyanceAllowance;
+            this.addEmployeeForm.DeductionAmount = resultData.DeductionAmount;
+            this.addEmployeeForm.active = resultData.active;
           }
         }
       },
@@ -71,10 +74,12 @@ export class EmployeepayrollUpdateComponent implements OnInit {
 }
 
 export class employeePayrollForm {
-  PayrollId: number = 0;
-  FirstName: string = "";
-  LastName: string = "";
-  Email: string = "";
-  Address: string = "";
-  Phone: string = "";
+  Id: number = 0;
+  EmployeeName: string="";
+  EmployeeId: number=0;
+  Basicpay: number=0;
+  HRA: number=0;
+  ConveyanceAllowance: number=0;
+  DeductionAmount: number=0;
+  active: number=1;
 }

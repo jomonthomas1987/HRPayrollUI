@@ -25,6 +25,10 @@ export class EmployeeViewComponent implements OnInit {
           var resultData = data.body;
           if (resultData) {
             this.employeeList = resultData;
+            console.log('this.employeeList');
+            console.log(this.employeeList);
+            console.log('resultData');
+            console.log(resultData);
           }
         }
       },
@@ -41,7 +45,7 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   AddEmployee() {
-    this.router.navigate(['AddEmployee']);
+    this.router.navigate(['dashboard/AddEmployee']);
   }
 
   deleteEmployee(employee: any) {

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="text-align:center;">
+            <h3>HR Payroll Report</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group p-12 row">
+                <div class="col-sm-3">
+                    <label for="Month" class="p-t-b-10">Month<span class="requiredStar">*</span></label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="Month" required maxlength="255"
+                        [(ngModel)]="reportForm.Month" name="Month" #Month="ngModel">
+                    <div *ngIf="Month.errors && isSubmitted" class="alert alert-danger validationError">
+                        <div [hidden]="!Month?.errors?.['required']">
+                            Month is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group p-12 row">
+                <div class="col-sm-3">
+                    <label for="Year" class="p-t-b-10">Year<span class="requiredStar">*</span></label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="Year" required maxlength="255"
+                        [(ngModel)]="reportForm.Year" name="Year" #Year="ngModel">
+                    <div *ngIf="Year.errors && isSubmitted" class="alert alert-danger validationError">
+                        <div [hidden]="!Year?.errors?.['required']">
+                            Year is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-footer">
+                <button class="btn btn-success">Generate Report</button>
+              </div>
+
+            <div class="table-responsive">
+
+                
+
+
+            </div>
+        </div>
+    </div>
+</div>

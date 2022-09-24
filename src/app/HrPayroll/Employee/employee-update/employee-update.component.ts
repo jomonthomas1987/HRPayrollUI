@@ -35,7 +35,7 @@ export class EmployeeUpdateComponent implements OnInit {
               if (resultData != null && resultData.isSuccess) {
                 //this.toastr.success(resultData.message);
                 setTimeout(() => {
-                  this.router.navigate(['/Home']);
+                  this.router.navigate(['/dashboard/EmployeeList/']);
                 }, 500);
               }
             }
@@ -44,7 +44,7 @@ export class EmployeeUpdateComponent implements OnInit {
         error: async error => {
           //this.toastr.error(error.message);
           setTimeout(() => {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/dashboard/EmployeeList/']);
           }, 500);
         }
       });
@@ -74,9 +74,11 @@ export class EmployeeUpdateComponent implements OnInit {
 
 export class employeeForm {
   Id: number = 0;
+  EmpId: string = "";
   FirstName: string = "";
   LastName: string = "";
   Email: string = "";
   Address: string = "";
   Phone: string = "";
+  Gender: string = "";
 }

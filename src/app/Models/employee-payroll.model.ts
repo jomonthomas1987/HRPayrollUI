@@ -1,12 +1,12 @@
 import { Employee } from "./employee.model";
 
-export interface EmployeePayroll extends Employee {
-    salaryId:number,
-    employeedId:number,
-    basicPay:number,
-    hra:number,
-    conveyance:number,
-    deductionAmount:number,
-    deductionReason:string,
-    active:number
+export interface EmployeePayroll {
+    id: number,
+    employeeName: string,
+    employeeId: number,
+    basicpay: number,
+    hra: number,
+    conveyanceAllowance: number,
+    deductionAmount: number,
+    active: number
 }

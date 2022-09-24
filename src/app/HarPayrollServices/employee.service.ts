@@ -3,13 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpProviderService } from './http-provider.service';
 
 
-var apiUrl = "http://localhost:8100/";
+var apiUrl = "https://localhost:44330";
 
 var httpLink = {
-  getAllEmployee: apiUrl + "/api/employee/getAllEmployee",
+  getAllEmployee: apiUrl + "/api/Employee/ViewAllEmployee",
   deleteEmployeeById: apiUrl + "/api/employee/deleteEmployeeById",
   getEmployeeDetailById: apiUrl + "/api/employee/getEmployeeDetailById",
-  saveEmployee: apiUrl + "/api/employee/saveEmployee"
+  saveEmployee: apiUrl + "/api/Employee/AddEmployee"
 }
 
 @Injectable({
