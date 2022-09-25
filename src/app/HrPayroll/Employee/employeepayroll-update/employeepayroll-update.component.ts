@@ -50,7 +50,7 @@ export class EmployeepayrollUpdateComponent implements OnInit {
     }
   }
 
-  getEmployeePayrollDetailById() {
+  /*getEmployeePayrollDetailById() {
     this.employeepayrollService.getEmployeePayrollDetailById(this.employeePayrollId).subscribe({
       next: (data: any) => {
         if (data != null && data.body != null) {
@@ -69,17 +69,17 @@ export class EmployeepayrollUpdateComponent implements OnInit {
       },
       error: (error: any) => { }
     });
-  }
+  }*/
 
 }
 
 export class employeePayrollForm {
   Id: number = 0;
-  EmployeeName: string="";
-  EmployeeId: number=0;
-  Basicpay: number=0;
-  HRA: number=0;
-  ConveyanceAllowance: number=0;
-  DeductionAmount: number=0;
-  active: number=1;
+  EmployeeName: string = "";
+  EmployeeId: number = 0;
+  Basicpay: number = 0;
+  HRA: number = 0;
+  ConveyanceAllowance: number = 0;
+  DeductionAmount: number = 0;
+  active: number = 1;
 }

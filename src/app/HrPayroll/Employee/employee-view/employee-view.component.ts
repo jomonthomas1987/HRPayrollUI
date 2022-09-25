@@ -48,7 +48,7 @@ export class EmployeeViewComponent implements OnInit {
     this.router.navigate(['dashboard/AddEmployee']);
   }
 
-  deleteEmployee(employee: any) {
+  /*deleteEmployee(employee: any) {
     this.employeeService.deleteEmployeeById(employee.id).subscribe({
       next: (data: any) => {
         if (data != null && data.body != null) {
@@ -61,6 +61,6 @@ export class EmployeeViewComponent implements OnInit {
       },
       error: (error: any) => { }
     });
-  }
+  }*/
 
 }

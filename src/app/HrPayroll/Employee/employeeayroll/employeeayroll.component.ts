@@ -45,21 +45,4 @@ export class EmployeeayrollComponent implements OnInit {
   AddEmployeePayroll() {
     this.router.navigate(['dashboard/AddEmployeePayroll']);
   }
-
-  deleteEmployee(employee: any) {
-    this.employeePayrollService.getEmployeePayrollDetailById(employee.id).subscribe({
-      next: (data: any) => {
-        if (data != null && data.body != null) {
-          var resultData = data.body;
-          if (resultData != null && resultData.isSuccess) {
-            //this.toastr.success(resultData.message);
-            this.getAllEmployeePayroll();
-          }
-        }
-      },
-      error: (error: any) => { }
-    });
-  }
-
-
 }

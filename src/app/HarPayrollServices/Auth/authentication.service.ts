@@ -17,14 +17,14 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
   public get currentUserValue(): User {
-    debugger;
+    //debugger;
     return this.currentUserSubject.value;
   }
 
   login(email: string, password: string) {
     return this.http.post<any>('https://localhost:44330/api/UserAccounts/Login', { email, password })
       .pipe(map(user => {
-        debugger;
+        //debugger;
         // login successful if there's a jwt token in the response
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes

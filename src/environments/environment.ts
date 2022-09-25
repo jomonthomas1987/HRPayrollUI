@@ -3,6 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiUrl: "https://localhost:44330",
+  getAllEmployee: "/api/Employee/ViewAllEmployee",
+  getEmployeeDetailById: "/api/employee/getEmployeeDetailById",
+  saveEmployee: "/api/Employee/AddEmployee",
+  getAllEmployeePayroll: "/api/Employee/ViewAllEmployeePayroll",
+  EmployePayrollReport: "/api/employee/EmployePayrollReport",
+  GeneratePayrollForAllEmployee: "/api/Employee/GeneratePayrollForAllEmployee",
+  saveEmployeePayroll: "/api/Employee/AddEmployeePayroll",
   production: false
 };
 

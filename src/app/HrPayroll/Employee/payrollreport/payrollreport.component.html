@@ -5,46 +5,85 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <div class="form-group p-12 row">
-                <div class="col-sm-3">
-                    <label for="Month" class="p-t-b-10">Month<span class="requiredStar">*</span></label>
-                </div>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="Month" required maxlength="255"
-                        [(ngModel)]="reportForm.Month" name="Month" #Month="ngModel">
-                    <div *ngIf="Month.errors && isSubmitted" class="alert alert-danger validationError">
-                        <div [hidden]="!Month?.errors?.['required']">
-                            Month is required
+        <form #payrollForm="ngForm">
+            <div class="col-md-8">
+                <div class="form-group p-12 row">
+                    <div class="col-sm-3">
+                        <label for="Month" class="p-t-b-10">Month<span class="requiredStar">*</span></label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="Month" required maxlength="255"
+                            [(ngModel)]="reportForm.Month" name="Month" #Month="ngModel">
+                        <div *ngIf="Month.errors && isSubmitted" class="alert alert-danger validationError">
+                            <div [hidden]="!Month?.errors?.['required']">
+                                Month is required
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group p-12 row">
-                <div class="col-sm-3">
-                    <label for="Year" class="p-t-b-10">Year<span class="requiredStar">*</span></label>
-                </div>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="Year" required maxlength="255"
-                        [(ngModel)]="reportForm.Year" name="Year" #Year="ngModel">
-                    <div *ngIf="Year.errors && isSubmitted" class="alert alert-danger validationError">
-                        <div [hidden]="!Year?.errors?.['required']">
-                            Year is required
+                <div class="form-group p-12 row">
+                    <div class="col-sm-3">
+                        <label for="Year" class="p-t-b-10">Year<span class="requiredStar">*</span></label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="Year" required maxlength="255"
+                            [(ngModel)]="reportForm.Year" name="Year" #Year="ngModel">
+                        <div *ngIf="Year.errors && isSubmitted" class="alert alert-danger validationError">
+                            <div [hidden]="!Year?.errors?.['required']">
+                                Year is required
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="table-footer">
+                    <button class="btn btn-success"
+                        (click)="GeneratePayrollForAllEmployee(payrollForm.form.valid)">Generate Report</button>
+                </div>
             </div>
-            <div class="table-footer">
-                <button class="btn btn-success">Generate Report</button>
-              </div>
+        </form>
+    </div>
+</div>
+<br />
 
-            <div class="table-responsive">
-
-                
-
-
-            </div>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover table-bordered table-content">
+                <thead>
+                    <tr class="center-align">
+                        <th>EMP ID</th>
+                        <th>Employee Name</th>
+                        <th>Basicpay</th>
+                        <th>HRA</th>
+                        <th>Conveyance Allowance</th>
+                        <th>Deduction Amount</th>
+                        <th>Salary</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employeePayrollList" class="center-align">
+                        <td>{{ employee.employeeId }}</td>
+                        <td>{{ employee.employeeName }}</td>
+                        <td>{{ employee.basicpay }}</td>
+                        <td>{{ employee.hra }}</td>
+                        <td>{{ employee.conveyanceAllowance }}</td>
+                        <td>{{ employee.deductionAmount }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>
+                            {{ employee.month }}
+                        </td>
+                        <td>
+                            {{ employee.year }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="employeePayrollList.length == 0" colspan="8">No Employee Found</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
